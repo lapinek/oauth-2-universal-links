@@ -13,9 +13,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+        print("USER ACTIVITY")
+
+        guard userActivity.activityType == NSUserActivityTypeBrowsingWeb, let url = userActivity.webpageURL else {
+            return false
+        }
+
+        print("User Activity (redirection) URL: ", url.absoluteURL)
+
+        return true
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+
+        let vc = ViewController()
+        let nc = UINavigationController(rootViewController: vc)
+
+        window?.rootViewController = nc
+        window?.makeKeyAndVisible()
+
         return true
     }
 

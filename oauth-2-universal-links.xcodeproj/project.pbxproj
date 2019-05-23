@@ -22,6 +22,7 @@
 		3C88ACC022972944009C2108 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3C88ACC322972944009C2108 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3C88ACC522972944009C2108 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3C88ACCB22973362009C2108 /* oauth-2-universal-links.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "oauth-2-universal-links.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +55,7 @@
 		3C88ACB822972943009C2108 /* oauth-2-universal-links */ = {
 			isa = PBXGroup;
 			children = (
+				3C88ACCB22973362009C2108 /* oauth-2-universal-links.entitlements */,
 				3C88ACB922972943009C2108 /* AppDelegate.swift */,
 				3C88ACBB22972943009C2108 /* ViewController.swift */,
 				3C88ACBD22972943009C2108 /* Main.storyboard */,
@@ -96,6 +98,11 @@
 				TargetAttributes = {
 					3C88ACB522972943009C2108 = {
 						CreatedOnToolsVersion = 10.2.1;
+						SystemCapabilities = {
+							com.apple.SafariKeychain = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -283,8 +290,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = JV6EC9KSN3;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "oauth-2-universal-links/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -301,8 +309,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = JV6EC9KSN3;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "oauth-2-universal-links/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
