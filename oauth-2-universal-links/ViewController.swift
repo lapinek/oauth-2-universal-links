@@ -76,7 +76,7 @@ class ViewController: UIViewController {
 
         authorizationEndpoint = "https://login.sample.forgeops.com/oauth2/authorize"
         clientId = "ios-appauth-basic"
-        redirectUri = "https://lapinek.github.io/redirect/forgerock/oauth-2-universal-links"
+        redirectUri = "https://lapinek.github.io/oauth2redirect/oauth-2-universal-links"
 
         // OAuth 2.0 scopes.
         scope = "openid%20profile"
