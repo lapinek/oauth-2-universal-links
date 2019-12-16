@@ -74,7 +74,7 @@ class ViewController: UIViewController {
     func setForgeRockExample() {
         // Provide the authorization endpoint URL and your OAuth 2.0 client specifics
 
-        authorizationEndpoint = "https://login.sample.forgeops.com/oauth2/authorize"
+        authorizationEndpoint = "https://default.iam.example.com/am/oauth2/authorize"
         clientId = "ios-appauth-basic"
         redirectUri = "https://lapinek.github.io/oauth2redirect/oauth-2-universal-links"
 
@@ -88,12 +88,16 @@ class ViewController: UIViewController {
 
     @objc func startAuthenticationSession() {
         if #available(iOS 12.0, *) {
-            aSWebAuthenticationSession = ASWebAuthenticationSession.init(url: url!, callbackURLScheme: "https") {
+            aSWebAuthenticationSession = ASWebAuthenticationSession.init(url: url!, callbackURLScheme: nil) {
                 url, error in
 
                 if let error = error {
                     print("ERROR: ", error.localizedDescription)
                 }
+            }
+
+            if #available(iOS 13.0, *) {
+                aSWebAuthenticationSession?.presentationContextProvider = self
             }
 
             aSWebAuthenticationSession!.start()
@@ -133,3 +137,10 @@ class ViewController: UIViewController {
     }
 }
 
+extension ViewController: ASWebAuthenticationPresentationContextProviding {
+    @available(iOS 13.0, *)
+
+    func presentationAnchor(for session: ASWebAuthenticationSession) -> ASPresentationAnchor {
+        return UIApplication.shared.keyWindow!
+    }
+}
